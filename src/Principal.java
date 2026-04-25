@@ -2,6 +2,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import modelos.Grafo;
 import nucleo.DSU;
@@ -128,8 +129,8 @@ public class Principal {
             int custoMST = AlgoritmoKruskal.encontrarMST(grafo, dsu);
             coletor.pararTempo();
             
-            String linha = String.format("%s,%s,%d,%d,%d,%.3f,%d,%s",
-                    tipoGrafo, nomeDsu, n, m, rep, 
+            String linha = String.format(Locale.US, "%s,%s,%d,%d,%d,%.3f,%d,%s",
+                    tipoGrafo, nomeDsu, n, m, rep,
                     coletor.getTempoMilissegundos(), custoMST,
                     coletor.toCSV());
             

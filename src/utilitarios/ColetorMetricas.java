@@ -1,5 +1,7 @@
 package utilitarios;
 
+import java.util.Locale;
+
 /**
  * Coletor de métricas para medir tempo de execução e acessos à memória.
  * 
@@ -176,19 +178,18 @@ public class ColetorMetricas {
      * @return linha CSV com as métricas
      */
     public String toCSV() {
-        return String.format("%d,%d,%d,%d,%d,%.3f",
+        return String.format(Locale.US, "%d,%d,%d,%d,%d",
                 operacoesFind,
                 operacoesUnion,
                 getTotalOperacoes(),
                 getTotalAcessos(),
-                getTempoNanosegundos(),
-                getTempoMilissegundos());
+                getTempoNanosegundos());
     }
     
     /**
      * Retorna o cabeçalho do CSV.
      */
     public static String getCSVCabecalho() {
-        return "operacoes_find,operacoes_union,total_operacoes,total_acessos,tempo_ns,tempo_ms";
+        return "operacoes_find,operacoes_union,total_operacoes,total_acessos,tempo_ns";
     }
 }
